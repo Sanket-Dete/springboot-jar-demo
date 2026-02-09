@@ -33,7 +33,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           source: "target/*.jar"
-          target: "/home/nmrmlatur/dev.settribeitsolutions.com/Dev/CICD-Dummy/"
+          target: "/home/nmrmlatur/dev.settribeitsolutions.com/Dev/CICD-Dummy/app.jar"
 
       - name: Restart service
         uses: appleboy/ssh-action@v1.0.3
