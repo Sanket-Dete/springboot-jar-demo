@@ -26,14 +26,15 @@ jobs:
       - name: Package JAR
         run: mvn package -DskipTests
 
+
       - name: Copy JAR to server
         uses: appleboy/scp-action@v0.1.7
         with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SERVER_SSH_KEY }}
-          source: "target/*.jar"
-          target: "/home/nmrmlatur/dev.settribeitsolutions.com/Dev/CICD-Dummy/app.jar"
+        host: ${{ secrets.SERVER_HOST }}
+        username: ${{ secrets.SERVER_USER }}
+        key: ${{ secrets.SERVER_SSH_KEY }}
+        source: "target/app.jar"
+        target: "/home/nmrmlatur/dev.settribeitsolutions.com/Dev/CICD-Dummy/"
 
       - name: Restart service
         uses: appleboy/ssh-action@v1.0.3
