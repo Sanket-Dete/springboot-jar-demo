@@ -26,6 +26,10 @@ jobs:
       - name: Package JAR
         run: mvn package -DskipTests
 
+      - name: Rename JAR
+        run: mv target/*.jar target/app.jar
+
+
       - name: Copy JAR to server
         uses: appleboy/scp-action@v0.1.7
         with:
