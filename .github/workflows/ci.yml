@@ -26,10 +26,6 @@ jobs:
       - name: Package JAR
         run: mvn package -DskipTests
 
-      - name: Rename JAR
-        run: mv target/*.jar target/app.jar
-
-
       - name: Copy JAR to server
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -37,7 +33,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           source: "target/*.jar"
-          target: "/home/nmrmlatur/dev.settribeitsolutions.com/Dev/CICD-Dummy/app.jar"
+          target: "/home/nmrmlatur/dev.settribeitsolutions.com/Dev/CICD-Dummy/"
 
       - name: Restart service
         uses: appleboy/ssh-action@v1.0.3
